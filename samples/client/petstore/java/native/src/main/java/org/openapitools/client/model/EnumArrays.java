@@ -42,79 +42,79 @@ import org.openapitools.client.ApiClient;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0-SNAPSHOT")
 public class EnumArrays {
-  /**
-   * Gets or Sets justSymbol
-   */
-  public enum JustSymbolEnum {
-    GREATER_THAN_OR_EQUAL_TO(String.valueOf(">=")),
-    
-    DOLLAR(String.valueOf("$"));
+/**
+* Gets or Sets justSymbol
+*/
+public enum JustSymbolEnum {
+        GREATER_THAN_OR_EQUAL_TO(String.valueOf(">=")),
+        
+        DOLLAR(String.valueOf("$"));
 
-    private String value;
+private String value;
 
-    JustSymbolEnum(String value) {
-      this.value = value;
-    }
+JustSymbolEnum(String value) {
+this.value = value;
+}
 
     @JsonValue
-    public String getValue() {
-      return value;
-    }
+public String getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static JustSymbolEnum fromValue(String value) {
-      for (JustSymbolEnum b : JustSymbolEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static JustSymbolEnum fromValue(String value) {
+for (JustSymbolEnum b : JustSymbolEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_JUST_SYMBOL = "just_symbol";
   @javax.annotation.Nullable
   private JustSymbolEnum justSymbol;
 
-  /**
-   * Gets or Sets arrayEnum
-   */
-  public enum ArrayEnumEnum {
-    FISH(String.valueOf("fish")),
-    
-    CRAB(String.valueOf("crab"));
+/**
+* Gets or Sets arrayEnum
+*/
+public enum ArrayEnumEnum {
+        FISH(String.valueOf("fish")),
+        
+        CRAB(String.valueOf("crab"));
 
-    private String value;
+private String value;
 
-    ArrayEnumEnum(String value) {
-      this.value = value;
-    }
+ArrayEnumEnum(String value) {
+this.value = value;
+}
 
     @JsonValue
-    public String getValue() {
-      return value;
-    }
+public String getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static ArrayEnumEnum fromValue(String value) {
-      for (ArrayEnumEnum b : ArrayEnumEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static ArrayEnumEnum fromValue(String value) {
+for (ArrayEnumEnum b : ArrayEnumEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_ARRAY_ENUM = "array_enum";
   @javax.annotation.Nullable

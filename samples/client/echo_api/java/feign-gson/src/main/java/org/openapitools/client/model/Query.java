@@ -35,54 +35,54 @@ public class Query {
   @javax.annotation.Nullable
   private Long id;
 
-  /**
-   * Gets or Sets outcomes
-   */
-  @JsonAdapter(OutcomesEnum.Adapter.class)
-  public enum OutcomesEnum {
-    SUCCESS(String.valueOf("SUCCESS")),
-    
-    FAILURE(String.valueOf("FAILURE")),
-    
-    SKIPPED(String.valueOf("SKIPPED"));
+/**
+* Gets or Sets outcomes
+*/
+    @JsonAdapter(OutcomesEnum.Adapter.class)
+public enum OutcomesEnum {
+        SUCCESS(String.valueOf("SUCCESS")),
+        
+        FAILURE(String.valueOf("FAILURE")),
+        
+        SKIPPED(String.valueOf("SKIPPED"));
 
-    private String value;
+private String value;
 
-    OutcomesEnum(String value) {
-      this.value = value;
-    }
+OutcomesEnum(String value) {
+this.value = value;
+}
 
-    public String getValue() {
-      return value;
+public String getValue() {
+return value;
+}
+
+@Override
+public String toString() {
+return String.valueOf(value);
+}
+
+public static OutcomesEnum fromValue(String value) {
+for (OutcomesEnum b : OutcomesEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+
+    public static class Adapter extends TypeAdapter<OutcomesEnum> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final OutcomesEnum enumeration) throws IOException {
+    jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
+    public OutcomesEnum read(final JsonReader jsonReader) throws IOException {
+    String value =  jsonReader.nextString();
+    return OutcomesEnum.fromValue(value);
     }
-
-    public static OutcomesEnum fromValue(String value) {
-      for (OutcomesEnum b : OutcomesEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<OutcomesEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final OutcomesEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public OutcomesEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return OutcomesEnum.fromValue(value);
-      }
-    }
-  }
+}
 
   public static final String SERIALIZED_NAME_OUTCOMES = "outcomes";
   @SerializedName(SERIALIZED_NAME_OUTCOMES)

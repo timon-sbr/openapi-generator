@@ -37,54 +37,54 @@ public class DefaultValue {
   @javax.annotation.Nullable
   private List<StringEnumRef> arrayStringEnumRefDefault = new ArrayList<>(Arrays.asList(StringEnumRef.SUCCESS, StringEnumRef.FAILURE));
 
-  /**
-   * Gets or Sets arrayStringEnumDefault
-   */
-  @JsonAdapter(ArrayStringEnumDefaultEnum.Adapter.class)
-  public enum ArrayStringEnumDefaultEnum {
-    SUCCESS(String.valueOf("success")),
-    
-    FAILURE(String.valueOf("failure")),
-    
-    UNCLASSIFIED(String.valueOf("unclassified"));
+/**
+* Gets or Sets arrayStringEnumDefault
+*/
+    @JsonAdapter(ArrayStringEnumDefaultEnum.Adapter.class)
+public enum ArrayStringEnumDefaultEnum {
+        SUCCESS(String.valueOf("success")),
+        
+        FAILURE(String.valueOf("failure")),
+        
+        UNCLASSIFIED(String.valueOf("unclassified"));
 
-    private String value;
+private String value;
 
-    ArrayStringEnumDefaultEnum(String value) {
-      this.value = value;
-    }
+ArrayStringEnumDefaultEnum(String value) {
+this.value = value;
+}
 
-    public String getValue() {
-      return value;
+public String getValue() {
+return value;
+}
+
+@Override
+public String toString() {
+return String.valueOf(value);
+}
+
+public static ArrayStringEnumDefaultEnum fromValue(String value) {
+for (ArrayStringEnumDefaultEnum b : ArrayStringEnumDefaultEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+
+    public static class Adapter extends TypeAdapter<ArrayStringEnumDefaultEnum> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final ArrayStringEnumDefaultEnum enumeration) throws IOException {
+    jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
+    public ArrayStringEnumDefaultEnum read(final JsonReader jsonReader) throws IOException {
+    String value =  jsonReader.nextString();
+    return ArrayStringEnumDefaultEnum.fromValue(value);
     }
-
-    public static ArrayStringEnumDefaultEnum fromValue(String value) {
-      for (ArrayStringEnumDefaultEnum b : ArrayStringEnumDefaultEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<ArrayStringEnumDefaultEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ArrayStringEnumDefaultEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ArrayStringEnumDefaultEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ArrayStringEnumDefaultEnum.fromValue(value);
-      }
-    }
-  }
+}
 
   public static final String SERIALIZED_NAME_ARRAY_STRING_ENUM_DEFAULT = "array_string_enum_default";
   @SerializedName(SERIALIZED_NAME_ARRAY_STRING_ENUM_DEFAULT)

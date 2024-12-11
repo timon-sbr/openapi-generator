@@ -42,88 +42,88 @@ import io.github.threetenjaxb.core.*;
 @XmlAccessorType(XmlAccessType.FIELD)
 @JacksonXmlRootElement(localName = "EnumArrays")
 public class EnumArrays {
-  /**
-   * Gets or Sets justSymbol
-   */
-  @XmlType(name="JustSymbolEnum")
-  @XmlEnum(String.class)
-  public enum JustSymbolEnum {
-    @XmlEnumValue(">=")
-    GREATER_THAN_OR_EQUAL_TO(String.valueOf(">=")),
-    
-    @XmlEnumValue("$")
-    DOLLAR(String.valueOf("$"));
+/**
+* Gets or Sets justSymbol
+*/
+    @XmlType(name="JustSymbolEnum")
+    @XmlEnum(String.class)
+public enum JustSymbolEnum {
+            @XmlEnumValue(">=")
+        GREATER_THAN_OR_EQUAL_TO(String.valueOf(">=")),
+        
+            @XmlEnumValue("$")
+        DOLLAR(String.valueOf("$"));
 
-    private String value;
+private String value;
 
-    JustSymbolEnum(String value) {
-      this.value = value;
-    }
+JustSymbolEnum(String value) {
+this.value = value;
+}
 
     @JsonValue
-    public String getValue() {
-      return value;
-    }
+public String getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static JustSymbolEnum fromValue(String value) {
-      for (JustSymbolEnum b : JustSymbolEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static JustSymbolEnum fromValue(String value) {
+for (JustSymbolEnum b : JustSymbolEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_JUST_SYMBOL = "just_symbol";
   @XmlElement(name = "just_symbol")
   @javax.annotation.Nullable
   private JustSymbolEnum justSymbol;
 
-  /**
-   * Gets or Sets arrayEnum
-   */
-  @XmlType(name="ArrayEnumEnum")
-  @XmlEnum(String.class)
-  public enum ArrayEnumEnum {
-    @XmlEnumValue("fish")
-    FISH(String.valueOf("fish")),
-    
-    @XmlEnumValue("crab")
-    CRAB(String.valueOf("crab"));
+/**
+* Gets or Sets arrayEnum
+*/
+    @XmlType(name="ArrayEnumEnum")
+    @XmlEnum(String.class)
+public enum ArrayEnumEnum {
+            @XmlEnumValue("fish")
+        FISH(String.valueOf("fish")),
+        
+            @XmlEnumValue("crab")
+        CRAB(String.valueOf("crab"));
 
-    private String value;
+private String value;
 
-    ArrayEnumEnum(String value) {
-      this.value = value;
-    }
+ArrayEnumEnum(String value) {
+this.value = value;
+}
 
     @JsonValue
-    public String getValue() {
-      return value;
-    }
+public String getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static ArrayEnumEnum fromValue(String value) {
-      for (ArrayEnumEnum b : ArrayEnumEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static ArrayEnumEnum fromValue(String value) {
+for (ArrayEnumEnum b : ArrayEnumEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_ARRAY_ENUM = "array_enum";
   @XmlElement(name = "array_enum")

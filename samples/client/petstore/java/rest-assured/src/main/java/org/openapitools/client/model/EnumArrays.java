@@ -33,104 +33,104 @@ import org.hibernate.validator.constraints.*;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0-SNAPSHOT")
 public class EnumArrays {
-  /**
-   * Gets or Sets justSymbol
-   */
-  @JsonAdapter(JustSymbolEnum.Adapter.class)
-  public enum JustSymbolEnum {
-    GREATER_THAN_OR_EQUAL_TO(String.valueOf(">=")),
-    
-    DOLLAR(String.valueOf("$"));
+/**
+* Gets or Sets justSymbol
+*/
+    @JsonAdapter(JustSymbolEnum.Adapter.class)
+public enum JustSymbolEnum {
+        GREATER_THAN_OR_EQUAL_TO(String.valueOf(">=")),
+        
+        DOLLAR(String.valueOf("$"));
 
-    private String value;
+private String value;
 
-    JustSymbolEnum(String value) {
-      this.value = value;
-    }
+JustSymbolEnum(String value) {
+this.value = value;
+}
 
-    public String getValue() {
-      return value;
+public String getValue() {
+return value;
+}
+
+@Override
+public String toString() {
+return String.valueOf(value);
+}
+
+public static JustSymbolEnum fromValue(String value) {
+for (JustSymbolEnum b : JustSymbolEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+
+    public static class Adapter extends TypeAdapter<JustSymbolEnum> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final JustSymbolEnum enumeration) throws IOException {
+    jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
+    public JustSymbolEnum read(final JsonReader jsonReader) throws IOException {
+    String value =  jsonReader.nextString();
+    return JustSymbolEnum.fromValue(value);
     }
-
-    public static JustSymbolEnum fromValue(String value) {
-      for (JustSymbolEnum b : JustSymbolEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<JustSymbolEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final JustSymbolEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public JustSymbolEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return JustSymbolEnum.fromValue(value);
-      }
-    }
-  }
+}
 
   public static final String SERIALIZED_NAME_JUST_SYMBOL = "just_symbol";
   @SerializedName(SERIALIZED_NAME_JUST_SYMBOL)
   @javax.annotation.Nullable
   private JustSymbolEnum justSymbol;
 
-  /**
-   * Gets or Sets arrayEnum
-   */
-  @JsonAdapter(ArrayEnumEnum.Adapter.class)
-  public enum ArrayEnumEnum {
-    FISH(String.valueOf("fish")),
-    
-    CRAB(String.valueOf("crab"));
+/**
+* Gets or Sets arrayEnum
+*/
+    @JsonAdapter(ArrayEnumEnum.Adapter.class)
+public enum ArrayEnumEnum {
+        FISH(String.valueOf("fish")),
+        
+        CRAB(String.valueOf("crab"));
 
-    private String value;
+private String value;
 
-    ArrayEnumEnum(String value) {
-      this.value = value;
-    }
+ArrayEnumEnum(String value) {
+this.value = value;
+}
 
-    public String getValue() {
-      return value;
+public String getValue() {
+return value;
+}
+
+@Override
+public String toString() {
+return String.valueOf(value);
+}
+
+public static ArrayEnumEnum fromValue(String value) {
+for (ArrayEnumEnum b : ArrayEnumEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+
+    public static class Adapter extends TypeAdapter<ArrayEnumEnum> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final ArrayEnumEnum enumeration) throws IOException {
+    jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
+    public ArrayEnumEnum read(final JsonReader jsonReader) throws IOException {
+    String value =  jsonReader.nextString();
+    return ArrayEnumEnum.fromValue(value);
     }
-
-    public static ArrayEnumEnum fromValue(String value) {
-      for (ArrayEnumEnum b : ArrayEnumEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<ArrayEnumEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ArrayEnumEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ArrayEnumEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return ArrayEnumEnum.fromValue(value);
-      }
-    }
-  }
+}
 
   public static final String SERIALIZED_NAME_ARRAY_ENUM = "array_enum";
   @SerializedName(SERIALIZED_NAME_ARRAY_ENUM)

@@ -48,54 +48,54 @@ public class Order {
   @javax.annotation.Nullable
   private OffsetDateTime shipDate;
 
-  /**
-   * Order Status
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    PLACED(String.valueOf("placed")),
-    
-    APPROVED(String.valueOf("approved")),
-    
-    DELIVERED(String.valueOf("delivered"));
+/**
+* Order Status
+*/
+    @JsonAdapter(StatusEnum.Adapter.class)
+public enum StatusEnum {
+        PLACED(String.valueOf("placed")),
+        
+        APPROVED(String.valueOf("approved")),
+        
+        DELIVERED(String.valueOf("delivered"));
 
-    private String value;
+private String value;
 
-    StatusEnum(String value) {
-      this.value = value;
-    }
+StatusEnum(String value) {
+this.value = value;
+}
 
-    public String getValue() {
-      return value;
+public String getValue() {
+return value;
+}
+
+@Override
+public String toString() {
+return String.valueOf(value);
+}
+
+public static StatusEnum fromValue(String value) {
+for (StatusEnum b : StatusEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+    jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
+    public StatusEnum read(final JsonReader jsonReader) throws IOException {
+    String value =  jsonReader.nextString();
+    return StatusEnum.fromValue(value);
     }
-
-    public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StatusEnum.fromValue(value);
-      }
-    }
-  }
+}
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)

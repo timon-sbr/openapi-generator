@@ -44,44 +44,44 @@ import org.hibernate.validator.constraints.*;
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "className", visible = true)
 
 public class BigCat extends Cat {
-  /**
-   * Gets or Sets kind
-   */
-  public enum KindEnum {
-    LIONS(String.valueOf("lions")),
-    
-    TIGERS(String.valueOf("tigers")),
-    
-    LEOPARDS(String.valueOf("leopards")),
-    
-    JAGUARS(String.valueOf("jaguars"));
+/**
+* Gets or Sets kind
+*/
+public enum KindEnum {
+        LIONS(String.valueOf("lions")),
+        
+        TIGERS(String.valueOf("tigers")),
+        
+        LEOPARDS(String.valueOf("leopards")),
+        
+        JAGUARS(String.valueOf("jaguars"));
 
-    private String value;
+private String value;
 
-    KindEnum(String value) {
-      this.value = value;
-    }
+KindEnum(String value) {
+this.value = value;
+}
 
     @JsonValue
-    public String getValue() {
-      return value;
-    }
+public String getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static KindEnum fromValue(String value) {
-      for (KindEnum b : KindEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static KindEnum fromValue(String value) {
+for (KindEnum b : KindEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_KIND = "kind";
   @javax.annotation.Nullable

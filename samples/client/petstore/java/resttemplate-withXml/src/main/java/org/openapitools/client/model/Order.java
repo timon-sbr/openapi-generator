@@ -65,47 +65,47 @@ public class Order {
   @javax.annotation.Nullable
   private OffsetDateTime shipDate;
 
-  /**
-   * Order Status
-   */
-  @XmlType(name="StatusEnum")
-  @XmlEnum(String.class)
-  public enum StatusEnum {
-    @XmlEnumValue("placed")
-    PLACED(String.valueOf("placed")),
-    
-    @XmlEnumValue("approved")
-    APPROVED(String.valueOf("approved")),
-    
-    @XmlEnumValue("delivered")
-    DELIVERED(String.valueOf("delivered"));
+/**
+* Order Status
+*/
+    @XmlType(name="StatusEnum")
+    @XmlEnum(String.class)
+public enum StatusEnum {
+            @XmlEnumValue("placed")
+        PLACED(String.valueOf("placed")),
+        
+            @XmlEnumValue("approved")
+        APPROVED(String.valueOf("approved")),
+        
+            @XmlEnumValue("delivered")
+        DELIVERED(String.valueOf("delivered"));
 
-    private String value;
+private String value;
 
-    StatusEnum(String value) {
-      this.value = value;
-    }
+StatusEnum(String value) {
+this.value = value;
+}
 
     @JsonValue
-    public String getValue() {
-      return value;
-    }
+public String getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static StatusEnum fromValue(String value) {
+for (StatusEnum b : StatusEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_STATUS = "status";
   @XmlElement(name = "status")

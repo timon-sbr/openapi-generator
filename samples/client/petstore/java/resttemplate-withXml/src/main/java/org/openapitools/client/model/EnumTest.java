@@ -54,182 +54,182 @@ import io.github.threetenjaxb.core.*;
 @XmlAccessorType(XmlAccessType.FIELD)
 @JacksonXmlRootElement(localName = "EnumTest")
 public class EnumTest {
-  /**
-   * Gets or Sets enumString
-   */
-  @XmlType(name="EnumStringEnum")
-  @XmlEnum(String.class)
-  public enum EnumStringEnum {
-    @XmlEnumValue("UPPER")
-    UPPER(String.valueOf("UPPER")),
-    
-    @XmlEnumValue("lower")
-    LOWER(String.valueOf("lower")),
-    
-    @XmlEnumValue("")
-    EMPTY(String.valueOf(""));
+/**
+* Gets or Sets enumString
+*/
+    @XmlType(name="EnumStringEnum")
+    @XmlEnum(String.class)
+public enum EnumStringEnum {
+            @XmlEnumValue("UPPER")
+        UPPER(String.valueOf("UPPER")),
+        
+            @XmlEnumValue("lower")
+        LOWER(String.valueOf("lower")),
+        
+            @XmlEnumValue("")
+        EMPTY(String.valueOf(""));
 
-    private String value;
+private String value;
 
-    EnumStringEnum(String value) {
-      this.value = value;
-    }
+EnumStringEnum(String value) {
+this.value = value;
+}
 
     @JsonValue
-    public String getValue() {
-      return value;
-    }
+public String getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static EnumStringEnum fromValue(String value) {
-      for (EnumStringEnum b : EnumStringEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static EnumStringEnum fromValue(String value) {
+for (EnumStringEnum b : EnumStringEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_ENUM_STRING = "enum_string";
   @XmlElement(name = "enum_string")
   @javax.annotation.Nullable
   private EnumStringEnum enumString;
 
-  /**
-   * Gets or Sets enumStringRequired
-   */
-  @XmlType(name="EnumStringRequiredEnum")
-  @XmlEnum(String.class)
-  public enum EnumStringRequiredEnum {
-    @XmlEnumValue("UPPER")
-    UPPER(String.valueOf("UPPER")),
-    
-    @XmlEnumValue("lower")
-    LOWER(String.valueOf("lower")),
-    
-    @XmlEnumValue("")
-    EMPTY(String.valueOf(""));
+/**
+* Gets or Sets enumStringRequired
+*/
+    @XmlType(name="EnumStringRequiredEnum")
+    @XmlEnum(String.class)
+public enum EnumStringRequiredEnum {
+            @XmlEnumValue("UPPER")
+        UPPER(String.valueOf("UPPER")),
+        
+            @XmlEnumValue("lower")
+        LOWER(String.valueOf("lower")),
+        
+            @XmlEnumValue("")
+        EMPTY(String.valueOf(""));
 
-    private String value;
+private String value;
 
-    EnumStringRequiredEnum(String value) {
-      this.value = value;
-    }
+EnumStringRequiredEnum(String value) {
+this.value = value;
+}
 
     @JsonValue
-    public String getValue() {
-      return value;
-    }
+public String getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static EnumStringRequiredEnum fromValue(String value) {
-      for (EnumStringRequiredEnum b : EnumStringRequiredEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static EnumStringRequiredEnum fromValue(String value) {
+for (EnumStringRequiredEnum b : EnumStringRequiredEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_ENUM_STRING_REQUIRED = "enum_string_required";
   @XmlElement(name = "enum_string_required")
   @javax.annotation.Nonnull
   private EnumStringRequiredEnum enumStringRequired;
 
-  /**
-   * Gets or Sets enumInteger
-   */
-  @XmlType(name="EnumIntegerEnum")
-  @XmlEnum(Integer.class)
-  public enum EnumIntegerEnum {
-    @XmlEnumValue("1")
-    NUMBER_1(Integer.valueOf(1)),
-    
-    @XmlEnumValue("-1")
-    NUMBER_MINUS_1(Integer.valueOf(-1));
+/**
+* Gets or Sets enumInteger
+*/
+    @XmlType(name="EnumIntegerEnum")
+    @XmlEnum(Integer.class)
+public enum EnumIntegerEnum {
+            @XmlEnumValue("1")
+        NUMBER_1(1),
+        
+            @XmlEnumValue("-1")
+        NUMBER_MINUS_1(-1);
 
-    private Integer value;
+private Integer value;
 
-    EnumIntegerEnum(Integer value) {
-      this.value = value;
-    }
+EnumIntegerEnum(Integer value) {
+this.value = value;
+}
 
     @JsonValue
-    public Integer getValue() {
-      return value;
-    }
+public Integer getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static EnumIntegerEnum fromValue(Integer value) {
-      for (EnumIntegerEnum b : EnumIntegerEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static EnumIntegerEnum fromValue(Integer value) {
+for (EnumIntegerEnum b : EnumIntegerEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_ENUM_INTEGER = "enum_integer";
   @XmlElement(name = "enum_integer")
   @javax.annotation.Nullable
   private EnumIntegerEnum enumInteger;
 
-  /**
-   * Gets or Sets enumNumber
-   */
-  @XmlType(name="EnumNumberEnum")
-  @XmlEnum(Double.class)
-  public enum EnumNumberEnum {
-    @XmlEnumValue("1.1")
-    NUMBER_1_DOT_1(Double.valueOf(1.1)),
-    
-    @XmlEnumValue("-1.2")
-    NUMBER_MINUS_1_DOT_2(Double.valueOf(-1.2));
+/**
+* Gets or Sets enumNumber
+*/
+    @XmlType(name="EnumNumberEnum")
+    @XmlEnum(Double.class)
+public enum EnumNumberEnum {
+            @XmlEnumValue("1.1")
+        NUMBER_1_DOT_1(1.1),
+        
+            @XmlEnumValue("-1.2")
+        NUMBER_MINUS_1_DOT_2(-1.2);
 
-    private Double value;
+private Double value;
 
-    EnumNumberEnum(Double value) {
-      this.value = value;
-    }
+EnumNumberEnum(Double value) {
+this.value = value;
+}
 
     @JsonValue
-    public Double getValue() {
-      return value;
-    }
+public Double getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static EnumNumberEnum fromValue(Double value) {
-      for (EnumNumberEnum b : EnumNumberEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static EnumNumberEnum fromValue(Double value) {
+for (EnumNumberEnum b : EnumNumberEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_ENUM_NUMBER = "enum_number";
   @XmlElement(name = "enum_number")

@@ -48,38 +48,38 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 })
 
 public class ParentWithNullable {
-  /**
-   * Gets or Sets type
-   */
-  public enum TypeEnum {
-    CHILD_WITH_NULLABLE(String.valueOf("ChildWithNullable"));
+/**
+* Gets or Sets type
+*/
+public enum TypeEnum {
+        CHILD_WITH_NULLABLE(String.valueOf("ChildWithNullable"));
 
-    private String value;
+private String value;
 
-    TypeEnum(String value) {
-      this.value = value;
-    }
+TypeEnum(String value) {
+this.value = value;
+}
 
     @JsonValue
-    public String getValue() {
-      return value;
-    }
+public String getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static TypeEnum fromValue(String value) {
+for (TypeEnum b : TypeEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_TYPE = "type";
   @jakarta.annotation.Nullable

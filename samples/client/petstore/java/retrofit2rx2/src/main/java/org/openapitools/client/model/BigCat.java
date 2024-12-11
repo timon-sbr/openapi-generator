@@ -28,56 +28,56 @@ import org.openapitools.client.model.Cat;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0-SNAPSHOT")
 public class BigCat extends Cat {
-  /**
-   * Gets or Sets kind
-   */
-  @JsonAdapter(KindEnum.Adapter.class)
-  public enum KindEnum {
-    LIONS(String.valueOf("lions")),
-    
-    TIGERS(String.valueOf("tigers")),
-    
-    LEOPARDS(String.valueOf("leopards")),
-    
-    JAGUARS(String.valueOf("jaguars"));
+/**
+* Gets or Sets kind
+*/
+    @JsonAdapter(KindEnum.Adapter.class)
+public enum KindEnum {
+        LIONS(String.valueOf("lions")),
+        
+        TIGERS(String.valueOf("tigers")),
+        
+        LEOPARDS(String.valueOf("leopards")),
+        
+        JAGUARS(String.valueOf("jaguars"));
 
-    private String value;
+private String value;
 
-    KindEnum(String value) {
-      this.value = value;
-    }
+KindEnum(String value) {
+this.value = value;
+}
 
-    public String getValue() {
-      return value;
+public String getValue() {
+return value;
+}
+
+@Override
+public String toString() {
+return String.valueOf(value);
+}
+
+public static KindEnum fromValue(String value) {
+for (KindEnum b : KindEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+
+    public static class Adapter extends TypeAdapter<KindEnum> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final KindEnum enumeration) throws IOException {
+    jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
+    public KindEnum read(final JsonReader jsonReader) throws IOException {
+    String value =  jsonReader.nextString();
+    return KindEnum.fromValue(value);
     }
-
-    public static KindEnum fromValue(String value) {
-      for (KindEnum b : KindEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<KindEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final KindEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public KindEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return KindEnum.fromValue(value);
-      }
-    }
-  }
+}
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)

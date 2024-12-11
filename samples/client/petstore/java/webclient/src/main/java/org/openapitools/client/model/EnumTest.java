@@ -47,161 +47,161 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 @JsonTypeName("Enum_Test")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0-SNAPSHOT")
 public class EnumTest {
-  /**
-   * Gets or Sets enumString
-   */
-  public enum EnumStringEnum {
-    UPPER(String.valueOf("UPPER")),
-    
-    LOWER(String.valueOf("lower")),
-    
-    EMPTY(String.valueOf(""));
+/**
+* Gets or Sets enumString
+*/
+public enum EnumStringEnum {
+        UPPER(String.valueOf("UPPER")),
+        
+        LOWER(String.valueOf("lower")),
+        
+        EMPTY(String.valueOf(""));
 
-    private String value;
+private String value;
 
-    EnumStringEnum(String value) {
-      this.value = value;
-    }
+EnumStringEnum(String value) {
+this.value = value;
+}
 
     @JsonValue
-    public String getValue() {
-      return value;
-    }
+public String getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static EnumStringEnum fromValue(String value) {
-      for (EnumStringEnum b : EnumStringEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static EnumStringEnum fromValue(String value) {
+for (EnumStringEnum b : EnumStringEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_ENUM_STRING = "enum_string";
   @javax.annotation.Nullable
   private EnumStringEnum enumString;
 
-  /**
-   * Gets or Sets enumStringRequired
-   */
-  public enum EnumStringRequiredEnum {
-    UPPER(String.valueOf("UPPER")),
-    
-    LOWER(String.valueOf("lower")),
-    
-    EMPTY(String.valueOf(""));
+/**
+* Gets or Sets enumStringRequired
+*/
+public enum EnumStringRequiredEnum {
+        UPPER(String.valueOf("UPPER")),
+        
+        LOWER(String.valueOf("lower")),
+        
+        EMPTY(String.valueOf(""));
 
-    private String value;
+private String value;
 
-    EnumStringRequiredEnum(String value) {
-      this.value = value;
-    }
+EnumStringRequiredEnum(String value) {
+this.value = value;
+}
 
     @JsonValue
-    public String getValue() {
-      return value;
-    }
+public String getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static EnumStringRequiredEnum fromValue(String value) {
-      for (EnumStringRequiredEnum b : EnumStringRequiredEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static EnumStringRequiredEnum fromValue(String value) {
+for (EnumStringRequiredEnum b : EnumStringRequiredEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_ENUM_STRING_REQUIRED = "enum_string_required";
   @javax.annotation.Nonnull
   private EnumStringRequiredEnum enumStringRequired;
 
-  /**
-   * Gets or Sets enumInteger
-   */
-  public enum EnumIntegerEnum {
-    NUMBER_1(Integer.valueOf(1)),
-    
-    NUMBER_MINUS_1(Integer.valueOf(-1));
+/**
+* Gets or Sets enumInteger
+*/
+public enum EnumIntegerEnum {
+        NUMBER_1(1),
+        
+        NUMBER_MINUS_1(-1);
 
-    private Integer value;
+private Integer value;
 
-    EnumIntegerEnum(Integer value) {
-      this.value = value;
-    }
+EnumIntegerEnum(Integer value) {
+this.value = value;
+}
 
     @JsonValue
-    public Integer getValue() {
-      return value;
-    }
+public Integer getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static EnumIntegerEnum fromValue(Integer value) {
-      for (EnumIntegerEnum b : EnumIntegerEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static EnumIntegerEnum fromValue(Integer value) {
+for (EnumIntegerEnum b : EnumIntegerEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_ENUM_INTEGER = "enum_integer";
   @javax.annotation.Nullable
   private EnumIntegerEnum enumInteger;
 
-  /**
-   * Gets or Sets enumNumber
-   */
-  public enum EnumNumberEnum {
-    NUMBER_1_DOT_1(Double.valueOf(1.1)),
-    
-    NUMBER_MINUS_1_DOT_2(Double.valueOf(-1.2));
+/**
+* Gets or Sets enumNumber
+*/
+public enum EnumNumberEnum {
+        NUMBER_1_DOT_1(1.1),
+        
+        NUMBER_MINUS_1_DOT_2(-1.2);
 
-    private Double value;
+private Double value;
 
-    EnumNumberEnum(Double value) {
-      this.value = value;
-    }
+EnumNumberEnum(Double value) {
+this.value = value;
+}
 
     @JsonValue
-    public Double getValue() {
-      return value;
-    }
+public Double getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static EnumNumberEnum fromValue(Double value) {
-      for (EnumNumberEnum b : EnumNumberEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static EnumNumberEnum fromValue(Double value) {
+for (EnumNumberEnum b : EnumNumberEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_ENUM_NUMBER = "enum_number";
   @javax.annotation.Nullable

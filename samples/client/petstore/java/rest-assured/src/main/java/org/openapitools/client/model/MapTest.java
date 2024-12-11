@@ -37,52 +37,52 @@ public class MapTest {
   @javax.annotation.Nullable
   private Map<String, Map<String, String>> mapMapOfString = new HashMap<>();
 
-  /**
-   * Gets or Sets inner
-   */
-  @JsonAdapter(InnerEnum.Adapter.class)
-  public enum InnerEnum {
-    UPPER(String.valueOf("UPPER")),
-    
-    LOWER(String.valueOf("lower"));
+/**
+* Gets or Sets inner
+*/
+    @JsonAdapter(InnerEnum.Adapter.class)
+public enum InnerEnum {
+        UPPER(String.valueOf("UPPER")),
+        
+        LOWER(String.valueOf("lower"));
 
-    private String value;
+private String value;
 
-    InnerEnum(String value) {
-      this.value = value;
-    }
+InnerEnum(String value) {
+this.value = value;
+}
 
-    public String getValue() {
-      return value;
+public String getValue() {
+return value;
+}
+
+@Override
+public String toString() {
+return String.valueOf(value);
+}
+
+public static InnerEnum fromValue(String value) {
+for (InnerEnum b : InnerEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+
+    public static class Adapter extends TypeAdapter<InnerEnum> {
+    @Override
+    public void write(final JsonWriter jsonWriter, final InnerEnum enumeration) throws IOException {
+    jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
+    public InnerEnum read(final JsonReader jsonReader) throws IOException {
+    String value =  jsonReader.nextString();
+    return InnerEnum.fromValue(value);
     }
-
-    public static InnerEnum fromValue(String value) {
-      for (InnerEnum b : InnerEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
-
-    public static class Adapter extends TypeAdapter<InnerEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final InnerEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public InnerEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return InnerEnum.fromValue(value);
-      }
-    }
-  }
+}
 
   public static final String SERIALIZED_NAME_MAP_OF_ENUM_STRING = "map_of_enum_string";
   @SerializedName(SERIALIZED_NAME_MAP_OF_ENUM_STRING)

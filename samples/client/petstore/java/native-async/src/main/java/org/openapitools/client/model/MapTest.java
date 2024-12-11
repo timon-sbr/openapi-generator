@@ -46,40 +46,40 @@ public class MapTest {
   @javax.annotation.Nullable
   private Map<String, Map<String, String>> mapMapOfString = new HashMap<>();
 
-  /**
-   * Gets or Sets inner
-   */
-  public enum InnerEnum {
-    UPPER(String.valueOf("UPPER")),
-    
-    LOWER(String.valueOf("lower"));
+/**
+* Gets or Sets inner
+*/
+public enum InnerEnum {
+        UPPER(String.valueOf("UPPER")),
+        
+        LOWER(String.valueOf("lower"));
 
-    private String value;
+private String value;
 
-    InnerEnum(String value) {
-      this.value = value;
-    }
+InnerEnum(String value) {
+this.value = value;
+}
 
     @JsonValue
-    public String getValue() {
-      return value;
-    }
+public String getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static InnerEnum fromValue(String value) {
-      for (InnerEnum b : InnerEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static InnerEnum fromValue(String value) {
+for (InnerEnum b : InnerEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_MAP_OF_ENUM_STRING = "map_of_enum_string";
   @javax.annotation.Nullable

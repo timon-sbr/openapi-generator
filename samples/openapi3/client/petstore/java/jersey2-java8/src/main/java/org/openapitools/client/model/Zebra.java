@@ -42,42 +42,42 @@ import org.openapitools.client.JSON;
 @JsonTypeName("zebra")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0-SNAPSHOT")
 public class Zebra {
-  /**
-   * Gets or Sets type
-   */
-  public enum TypeEnum {
-    PLAINS(String.valueOf("plains")),
-    
-    MOUNTAIN(String.valueOf("mountain")),
-    
-    GREVYS(String.valueOf("grevys"));
+/**
+* Gets or Sets type
+*/
+public enum TypeEnum {
+        PLAINS(String.valueOf("plains")),
+        
+        MOUNTAIN(String.valueOf("mountain")),
+        
+        GREVYS(String.valueOf("grevys"));
 
-    private String value;
+private String value;
 
-    TypeEnum(String value) {
-      this.value = value;
-    }
+TypeEnum(String value) {
+this.value = value;
+}
 
     @JsonValue
-    public String getValue() {
-      return value;
-    }
+public String getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static TypeEnum fromValue(String value) {
+for (TypeEnum b : TypeEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_TYPE = "type";
   @javax.annotation.Nullable

@@ -39,42 +39,42 @@ public class Query {
   @javax.annotation.Nullable
   protected Long id;
 
-  /**
-   * Gets or Sets outcomes
-   */
-  public enum OutcomesEnum {
-    SUCCESS(String.valueOf("SUCCESS")),
-    
-    FAILURE(String.valueOf("FAILURE")),
-    
-    SKIPPED(String.valueOf("SKIPPED"));
+/**
+* Gets or Sets outcomes
+*/
+public enum OutcomesEnum {
+        SUCCESS(String.valueOf("SUCCESS")),
+        
+        FAILURE(String.valueOf("FAILURE")),
+        
+        SKIPPED(String.valueOf("SKIPPED"));
 
-    private String value;
+private String value;
 
-    OutcomesEnum(String value) {
-      this.value = value;
-    }
+OutcomesEnum(String value) {
+this.value = value;
+}
 
     @JsonValue
-    public String getValue() {
-      return value;
-    }
+public String getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static OutcomesEnum fromValue(String value) {
-      for (OutcomesEnum b : OutcomesEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static OutcomesEnum fromValue(String value) {
+for (OutcomesEnum b : OutcomesEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_OUTCOMES = "outcomes";
   @javax.annotation.Nullable

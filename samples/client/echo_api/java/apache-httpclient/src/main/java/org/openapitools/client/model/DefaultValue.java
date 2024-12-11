@@ -53,42 +53,42 @@ public class DefaultValue {
   @javax.annotation.Nullable
   private List<StringEnumRef> arrayStringEnumRefDefault = new ArrayList<>(Arrays.asList(StringEnumRef.SUCCESS, StringEnumRef.FAILURE));
 
-  /**
-   * Gets or Sets arrayStringEnumDefault
-   */
-  public enum ArrayStringEnumDefaultEnum {
-    SUCCESS(String.valueOf("success")),
-    
-    FAILURE(String.valueOf("failure")),
-    
-    UNCLASSIFIED(String.valueOf("unclassified"));
+/**
+* Gets or Sets arrayStringEnumDefault
+*/
+public enum ArrayStringEnumDefaultEnum {
+        SUCCESS(String.valueOf("success")),
+        
+        FAILURE(String.valueOf("failure")),
+        
+        UNCLASSIFIED(String.valueOf("unclassified"));
 
-    private String value;
+private String value;
 
-    ArrayStringEnumDefaultEnum(String value) {
-      this.value = value;
-    }
+ArrayStringEnumDefaultEnum(String value) {
+this.value = value;
+}
 
     @JsonValue
-    public String getValue() {
-      return value;
-    }
+public String getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static ArrayStringEnumDefaultEnum fromValue(String value) {
-      for (ArrayStringEnumDefaultEnum b : ArrayStringEnumDefaultEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static ArrayStringEnumDefaultEnum fromValue(String value) {
+for (ArrayStringEnumDefaultEnum b : ArrayStringEnumDefaultEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_ARRAY_STRING_ENUM_DEFAULT = "array_string_enum_default";
   @javax.annotation.Nullable

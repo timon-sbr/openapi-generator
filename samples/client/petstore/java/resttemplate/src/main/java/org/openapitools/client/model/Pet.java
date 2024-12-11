@@ -64,42 +64,42 @@ public class Pet {
   @javax.annotation.Nullable
   private List<Tag> tags;
 
-  /**
-   * pet status in the store
-   */
-  public enum StatusEnum {
-    AVAILABLE(String.valueOf("available")),
-    
-    PENDING(String.valueOf("pending")),
-    
-    SOLD(String.valueOf("sold"));
+/**
+* pet status in the store
+*/
+public enum StatusEnum {
+        AVAILABLE(String.valueOf("available")),
+        
+        PENDING(String.valueOf("pending")),
+        
+        SOLD(String.valueOf("sold"));
 
-    private String value;
+private String value;
 
-    StatusEnum(String value) {
-      this.value = value;
-    }
+StatusEnum(String value) {
+this.value = value;
+}
 
     @JsonValue
-    public String getValue() {
-      return value;
-    }
+public String getValue() {
+return value;
+}
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+@Override
+public String toString() {
+return String.valueOf(value);
+}
 
     @JsonCreator
-    public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+public static StatusEnum fromValue(String value) {
+for (StatusEnum b : StatusEnum.values()) {
+if (b.value.equals(value)) {
+return b;
+}
+}
+throw new IllegalArgumentException("Unexpected value '" + value + "'");
+}
+}
 
   public static final String JSON_PROPERTY_STATUS = "status";
   @javax.annotation.Nullable
