@@ -37,7 +37,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0-SNAPSHOT")
 public class FakeApi {
     private ApiClient apiClient;
 
@@ -186,12 +186,6 @@ public class FakeApi {
     public ResponseSpec fakeHealthGetWithResponseSpec() throws RestClientResponseException {
         return fakeHealthGetRequestCreation();
     }
-// It has NO single param!
-/*
-* pet
-* query1
-* header1
-*/
 
     public record FakeHttpSignatureTestRequest(Pet pet, String query1, String header1){}
 
@@ -311,10 +305,6 @@ public class FakeApi {
     public ResponseSpec fakeHttpSignatureTestWithResponseSpec(Pet pet, String query1, String header1) throws RestClientResponseException {
         return fakeHttpSignatureTestRequestCreation(pet, query1, header1);
     }
-// It has a single param!
-/*
-* body
-*/
     /**
      * 
      * Test serialization of outer boolean types
@@ -385,10 +375,6 @@ public class FakeApi {
     public ResponseSpec fakeOuterBooleanSerializeWithResponseSpec(Boolean body) throws RestClientResponseException {
         return fakeOuterBooleanSerializeRequestCreation(body);
     }
-// It has a single param!
-/*
-* outerComposite
-*/
     /**
      * 
      * Test serialization of object with outer number type
@@ -459,10 +445,6 @@ public class FakeApi {
     public ResponseSpec fakeOuterCompositeSerializeWithResponseSpec(OuterComposite outerComposite) throws RestClientResponseException {
         return fakeOuterCompositeSerializeRequestCreation(outerComposite);
     }
-// It has a single param!
-/*
-* body
-*/
     /**
      * 
      * Test serialization of outer number types
@@ -533,10 +515,6 @@ public class FakeApi {
     public ResponseSpec fakeOuterNumberSerializeWithResponseSpec(BigDecimal body) throws RestClientResponseException {
         return fakeOuterNumberSerializeRequestCreation(body);
     }
-// It has a single param!
-/*
-* body
-*/
     /**
      * 
      * Test serialization of outer string types
@@ -607,10 +585,6 @@ public class FakeApi {
     public ResponseSpec fakeOuterStringSerializeWithResponseSpec(String body) throws RestClientResponseException {
         return fakeOuterStringSerializeRequestCreation(body);
     }
-// It has a single param!
-/*
-* outerObjectWithEnumProperty
-*/
     /**
      * 
      * Test serialization of enum (int) properties with examples
@@ -685,10 +659,6 @@ public class FakeApi {
     public ResponseSpec fakePropertyEnumIntegerSerializeWithResponseSpec(OuterObjectWithEnumProperty outerObjectWithEnumProperty) throws RestClientResponseException {
         return fakePropertyEnumIntegerSerializeRequestCreation(outerObjectWithEnumProperty);
     }
-// It has a single param!
-/*
-* requestBody
-*/
     /**
      * test referenced additionalProperties
      * 
@@ -758,10 +728,6 @@ public class FakeApi {
     public ResponseSpec testAdditionalPropertiesReferenceWithResponseSpec(Map<String, Object> requestBody) throws RestClientResponseException {
         return testAdditionalPropertiesReferenceRequestCreation(requestBody);
     }
-// It has a single param!
-/*
-* body
-*/
     /**
      * 
      * For this test, the body has to be a binary file.
@@ -831,10 +797,6 @@ public class FakeApi {
     public ResponseSpec testBodyWithBinaryWithResponseSpec(File body) throws RestClientResponseException {
         return testBodyWithBinaryRequestCreation(body);
     }
-// It has a single param!
-/*
-* fileSchemaTestClass
-*/
     /**
      * 
      * For this test, the body for this request must reference a schema named &#x60;File&#x60;.
@@ -904,11 +866,6 @@ public class FakeApi {
     public ResponseSpec testBodyWithFileSchemaWithResponseSpec(FileSchemaTestClass fileSchemaTestClass) throws RestClientResponseException {
         return testBodyWithFileSchemaRequestCreation(fileSchemaTestClass);
     }
-// It has NO single param!
-/*
-* query
-* user
-*/
 
     public record TestBodyWithQueryParamsRequest(String query, User user){}
 
@@ -1025,10 +982,6 @@ public class FakeApi {
     public ResponseSpec testBodyWithQueryParamsWithResponseSpec(String query, User user) throws RestClientResponseException {
         return testBodyWithQueryParamsRequestCreation(query, user);
     }
-// It has a single param!
-/*
-* client
-*/
     /**
      * To test \&quot;client\&quot; model
      * To test \&quot;client\&quot; model
@@ -1103,23 +1056,6 @@ public class FakeApi {
     public ResponseSpec testClientModelWithResponseSpec(Client client) throws RestClientResponseException {
         return testClientModelRequestCreation(client);
     }
-// It has NO single param!
-/*
-* number
-* _double
-* patternWithoutDelimiter
-* _byte
-* integer
-* int32
-* int64
-* _float
-* string
-* binary
-* date
-* dateTime
-* password
-* paramCallback
-*/
 
     public record TestEndpointParametersRequest(BigDecimal number, Double _double, String patternWithoutDelimiter, byte[] _byte, Integer integer, Integer int32, Long int64, Float _float, String string, File binary, LocalDate date, OffsetDateTime dateTime, String password, String paramCallback){}
 
@@ -1326,20 +1262,8 @@ public class FakeApi {
     public ResponseSpec testEndpointParametersWithResponseSpec(BigDecimal number, Double _double, String patternWithoutDelimiter, byte[] _byte, Integer integer, Integer int32, Long int64, Float _float, String string, File binary, LocalDate date, OffsetDateTime dateTime, String password, String paramCallback) throws RestClientResponseException {
         return testEndpointParametersRequestCreation(number, _double, patternWithoutDelimiter, _byte, integer, int32, int64, _float, string, binary, date, dateTime, password, paramCallback);
     }
-// It has NO single param!
-/*
-* enumHeaderStringArray
-* enumHeaderString
-* enumQueryStringArray
-* enumQueryString
-* enumQueryInteger
-* enumQueryDouble
-* enumQueryModelArray
-* enumFormStringArray
-* enumFormString
-*/
 
-    public record TestEnumParametersRequest(List<String> enumHeaderStringArray, String enumHeaderString, List<String> enumQueryStringArray, String enumQueryString, Integer enumQueryInteger, Double enumQueryDouble, List<EnumClass> enumQueryModelArray, List<String> enumFormStringArray, String enumFormString){}
+    public record TestEnumParametersRequest(List<String> enumHeaderStringArray, String enumHeaderString, List<String> enumQueryStringArray, String enumQueryString, Integer enumQueryInteger, Double enumQueryDouble, List<EnumClass> enumQueryModelArray, List<String> enumFormStringArray, String enumFormString, Integer enumFormInteger, BigDecimal enumFormDouble){}
 
     /**
     * To test enum parameters
@@ -1350,7 +1274,7 @@ public class FakeApi {
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
     */
     public void testEnumParameters(TestEnumParametersRequest requestParameters) throws RestClientResponseException {
-      this.testEnumParameters(requestParameters.enumHeaderStringArray(), requestParameters.enumHeaderString(), requestParameters.enumQueryStringArray(), requestParameters.enumQueryString(), requestParameters.enumQueryInteger(), requestParameters.enumQueryDouble(), requestParameters.enumQueryModelArray(), requestParameters.enumFormStringArray(), requestParameters.enumFormString());
+      this.testEnumParameters(requestParameters.enumHeaderStringArray(), requestParameters.enumHeaderString(), requestParameters.enumQueryStringArray(), requestParameters.enumQueryString(), requestParameters.enumQueryInteger(), requestParameters.enumQueryDouble(), requestParameters.enumQueryModelArray(), requestParameters.enumFormStringArray(), requestParameters.enumFormString(), requestParameters.enumFormInteger(), requestParameters.enumFormDouble());
     }
 
   /**
@@ -1362,7 +1286,7 @@ public class FakeApi {
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
     */
     public ResponseEntity<Void> testEnumParametersWithHttpInfo(TestEnumParametersRequest requestParameters) throws RestClientResponseException {
-      return this.testEnumParametersWithHttpInfo(requestParameters.enumHeaderStringArray(), requestParameters.enumHeaderString(), requestParameters.enumQueryStringArray(), requestParameters.enumQueryString(), requestParameters.enumQueryInteger(), requestParameters.enumQueryDouble(), requestParameters.enumQueryModelArray(), requestParameters.enumFormStringArray(), requestParameters.enumFormString());
+      return this.testEnumParametersWithHttpInfo(requestParameters.enumHeaderStringArray(), requestParameters.enumHeaderString(), requestParameters.enumQueryStringArray(), requestParameters.enumQueryString(), requestParameters.enumQueryInteger(), requestParameters.enumQueryDouble(), requestParameters.enumQueryModelArray(), requestParameters.enumFormStringArray(), requestParameters.enumFormString(), requestParameters.enumFormInteger(), requestParameters.enumFormDouble());
     }
 
   /**
@@ -1375,7 +1299,7 @@ public class FakeApi {
   * @throws RestClientResponseException if an error occurs while attempting to invoke the API
     */
     public ResponseSpec testEnumParametersWithResponseSpec(TestEnumParametersRequest requestParameters) throws RestClientResponseException {
-      return this.testEnumParametersWithResponseSpec(requestParameters.enumHeaderStringArray(), requestParameters.enumHeaderString(), requestParameters.enumQueryStringArray(), requestParameters.enumQueryString(), requestParameters.enumQueryInteger(), requestParameters.enumQueryDouble(), requestParameters.enumQueryModelArray(), requestParameters.enumFormStringArray(), requestParameters.enumFormString());
+      return this.testEnumParametersWithResponseSpec(requestParameters.enumHeaderStringArray(), requestParameters.enumHeaderString(), requestParameters.enumQueryStringArray(), requestParameters.enumQueryString(), requestParameters.enumQueryInteger(), requestParameters.enumQueryDouble(), requestParameters.enumQueryModelArray(), requestParameters.enumFormStringArray(), requestParameters.enumFormString(), requestParameters.enumFormInteger(), requestParameters.enumFormDouble());
     }
 
     /**
@@ -1392,9 +1316,11 @@ public class FakeApi {
      * @param enumQueryModelArray The enumQueryModelArray parameter
      * @param enumFormStringArray Form parameter enum test (string array)
      * @param enumFormString Form parameter enum test (string)
+     * @param enumFormInteger Form parameter enum test (integer)
+     * @param enumFormDouble Form parameter enum test (double)
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec testEnumParametersRequestCreation(List<String> enumHeaderStringArray, String enumHeaderString, List<String> enumQueryStringArray, String enumQueryString, Integer enumQueryInteger, Double enumQueryDouble, List<EnumClass> enumQueryModelArray, List<String> enumFormStringArray, String enumFormString) throws RestClientResponseException {
+    private ResponseSpec testEnumParametersRequestCreation(List<String> enumHeaderStringArray, String enumHeaderString, List<String> enumQueryStringArray, String enumQueryString, Integer enumQueryInteger, Double enumQueryDouble, List<EnumClass> enumQueryModelArray, List<String> enumFormStringArray, String enumFormString, Integer enumFormInteger, BigDecimal enumFormDouble) throws RestClientResponseException {
         Object postBody = null;
         // create path and map variables
         final Map<String, Object> pathParams = new HashMap<>();
@@ -1419,6 +1345,10 @@ public class FakeApi {
             formParams.addAll("enum_form_string_array", enumFormStringArray);
         if (enumFormString != null)
             formParams.add("enum_form_string", enumFormString);
+        if (enumFormInteger != null)
+            formParams.add("enum_form_integer", enumFormInteger);
+        if (enumFormDouble != null)
+            formParams.add("enum_form_double", enumFormDouble);
 
         final String[] localVarAccepts = { };
         final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
@@ -1447,11 +1377,13 @@ public class FakeApi {
      * @param enumQueryModelArray The enumQueryModelArray parameter
      * @param enumFormStringArray Form parameter enum test (string array)
      * @param enumFormString Form parameter enum test (string)
+     * @param enumFormInteger Form parameter enum test (integer)
+     * @param enumFormDouble Form parameter enum test (double)
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public void testEnumParameters(List<String> enumHeaderStringArray, String enumHeaderString, List<String> enumQueryStringArray, String enumQueryString, Integer enumQueryInteger, Double enumQueryDouble, List<EnumClass> enumQueryModelArray, List<String> enumFormStringArray, String enumFormString) throws RestClientResponseException {
+    public void testEnumParameters(List<String> enumHeaderStringArray, String enumHeaderString, List<String> enumQueryStringArray, String enumQueryString, Integer enumQueryInteger, Double enumQueryDouble, List<EnumClass> enumQueryModelArray, List<String> enumFormStringArray, String enumFormString, Integer enumFormInteger, BigDecimal enumFormDouble) throws RestClientResponseException {
         ParameterizedTypeReference<Void> localVarReturnType = new ParameterizedTypeReference<>() {};
-        testEnumParametersRequestCreation(enumHeaderStringArray, enumHeaderString, enumQueryStringArray, enumQueryString, enumQueryInteger, enumQueryDouble, enumQueryModelArray, enumFormStringArray, enumFormString).body(localVarReturnType);
+        testEnumParametersRequestCreation(enumHeaderStringArray, enumHeaderString, enumQueryStringArray, enumQueryString, enumQueryInteger, enumQueryDouble, enumQueryModelArray, enumFormStringArray, enumFormString, enumFormInteger, enumFormDouble).body(localVarReturnType);
     }
 
     /**
@@ -1468,11 +1400,13 @@ public class FakeApi {
      * @param enumQueryModelArray The enumQueryModelArray parameter
      * @param enumFormStringArray Form parameter enum test (string array)
      * @param enumFormString Form parameter enum test (string)
+     * @param enumFormInteger Form parameter enum test (integer)
+     * @param enumFormDouble Form parameter enum test (double)
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Void> testEnumParametersWithHttpInfo(List<String> enumHeaderStringArray, String enumHeaderString, List<String> enumQueryStringArray, String enumQueryString, Integer enumQueryInteger, Double enumQueryDouble, List<EnumClass> enumQueryModelArray, List<String> enumFormStringArray, String enumFormString) throws RestClientResponseException {
+    public ResponseEntity<Void> testEnumParametersWithHttpInfo(List<String> enumHeaderStringArray, String enumHeaderString, List<String> enumQueryStringArray, String enumQueryString, Integer enumQueryInteger, Double enumQueryDouble, List<EnumClass> enumQueryModelArray, List<String> enumFormStringArray, String enumFormString, Integer enumFormInteger, BigDecimal enumFormDouble) throws RestClientResponseException {
         ParameterizedTypeReference<Void> localVarReturnType = new ParameterizedTypeReference<>() {};
-        return testEnumParametersRequestCreation(enumHeaderStringArray, enumHeaderString, enumQueryStringArray, enumQueryString, enumQueryInteger, enumQueryDouble, enumQueryModelArray, enumFormStringArray, enumFormString).toEntity(localVarReturnType);
+        return testEnumParametersRequestCreation(enumHeaderStringArray, enumHeaderString, enumQueryStringArray, enumQueryString, enumQueryInteger, enumQueryDouble, enumQueryModelArray, enumFormStringArray, enumFormString, enumFormInteger, enumFormDouble).toEntity(localVarReturnType);
     }
 
     /**
@@ -1489,21 +1423,14 @@ public class FakeApi {
      * @param enumQueryModelArray The enumQueryModelArray parameter
      * @param enumFormStringArray Form parameter enum test (string array)
      * @param enumFormString Form parameter enum test (string)
+     * @param enumFormInteger Form parameter enum test (integer)
+     * @param enumFormDouble Form parameter enum test (double)
      * @return ResponseSpec
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec testEnumParametersWithResponseSpec(List<String> enumHeaderStringArray, String enumHeaderString, List<String> enumQueryStringArray, String enumQueryString, Integer enumQueryInteger, Double enumQueryDouble, List<EnumClass> enumQueryModelArray, List<String> enumFormStringArray, String enumFormString) throws RestClientResponseException {
-        return testEnumParametersRequestCreation(enumHeaderStringArray, enumHeaderString, enumQueryStringArray, enumQueryString, enumQueryInteger, enumQueryDouble, enumQueryModelArray, enumFormStringArray, enumFormString);
+    public ResponseSpec testEnumParametersWithResponseSpec(List<String> enumHeaderStringArray, String enumHeaderString, List<String> enumQueryStringArray, String enumQueryString, Integer enumQueryInteger, Double enumQueryDouble, List<EnumClass> enumQueryModelArray, List<String> enumFormStringArray, String enumFormString, Integer enumFormInteger, BigDecimal enumFormDouble) throws RestClientResponseException {
+        return testEnumParametersRequestCreation(enumHeaderStringArray, enumHeaderString, enumQueryStringArray, enumQueryString, enumQueryInteger, enumQueryDouble, enumQueryModelArray, enumFormStringArray, enumFormString, enumFormInteger, enumFormDouble);
     }
-// It has NO single param!
-/*
-* requiredStringGroup
-* requiredBooleanGroup
-* requiredInt64Group
-* stringGroup
-* booleanGroup
-* int64Group
-*/
 
     public record TestGroupParametersRequest(Integer requiredStringGroup, Boolean requiredBooleanGroup, Long requiredInt64Group, Integer stringGroup, Boolean booleanGroup, Long int64Group){}
 
@@ -1646,10 +1573,6 @@ public class FakeApi {
     public ResponseSpec testGroupParametersWithResponseSpec(Integer requiredStringGroup, Boolean requiredBooleanGroup, Long requiredInt64Group, Integer stringGroup, Boolean booleanGroup, Long int64Group) throws RestClientResponseException {
         return testGroupParametersRequestCreation(requiredStringGroup, requiredBooleanGroup, requiredInt64Group, stringGroup, booleanGroup, int64Group);
     }
-// It has a single param!
-/*
-* requestBody
-*/
     /**
      * test inline additionalProperties
      * 
@@ -1719,10 +1642,6 @@ public class FakeApi {
     public ResponseSpec testInlineAdditionalPropertiesWithResponseSpec(Map<String, String> requestBody) throws RestClientResponseException {
         return testInlineAdditionalPropertiesRequestCreation(requestBody);
     }
-// It has a single param!
-/*
-* testInlineFreeformAdditionalPropertiesRequest
-*/
     /**
      * test inline free-form additionalProperties
      * 
@@ -1792,11 +1711,6 @@ public class FakeApi {
     public ResponseSpec testInlineFreeformAdditionalPropertiesWithResponseSpec(TestInlineFreeformAdditionalPropertiesRequest testInlineFreeformAdditionalPropertiesRequest) throws RestClientResponseException {
         return testInlineFreeformAdditionalPropertiesRequestCreation(testInlineFreeformAdditionalPropertiesRequest);
     }
-// It has NO single param!
-/*
-* param
-* param2
-*/
 
     public record TestJsonFormDataRequest(String param, String param2){}
 
@@ -1916,10 +1830,6 @@ public class FakeApi {
     public ResponseSpec testJsonFormDataWithResponseSpec(String param, String param2) throws RestClientResponseException {
         return testJsonFormDataRequestCreation(param, param2);
     }
-// It has a single param!
-/*
-* childWithNullable
-*/
     /**
      * test nullable parent property
      * 
@@ -1989,16 +1899,6 @@ public class FakeApi {
     public ResponseSpec testNullableWithResponseSpec(ChildWithNullable childWithNullable) throws RestClientResponseException {
         return testNullableRequestCreation(childWithNullable);
     }
-// It has NO single param!
-/*
-* pipe
-* ioutil
-* http
-* url
-* context
-* allowEmpty
-* language
-*/
 
     public record TestQueryParameterCollectionFormatRequest(List<String> pipe, List<String> ioutil, List<String> http, List<String> url, List<String> context, String allowEmpty, Map<String, String> language){}
 
@@ -2155,10 +2055,6 @@ public class FakeApi {
     public ResponseSpec testQueryParameterCollectionFormatWithResponseSpec(List<String> pipe, List<String> ioutil, List<String> http, List<String> url, List<String> context, String allowEmpty, Map<String, String> language) throws RestClientResponseException {
         return testQueryParameterCollectionFormatRequestCreation(pipe, ioutil, http, url, context, allowEmpty, language);
     }
-// It has a single param!
-/*
-* requestBody
-*/
     /**
      * test referenced string map
      * 

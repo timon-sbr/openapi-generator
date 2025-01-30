@@ -48,18 +48,18 @@ import org.openapitools.client.JSON;
 /**
  * Zebra
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0-SNAPSHOT")
 public class Zebra {
   /**
    * Gets or Sets type
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    PLAINS("plains"),
+    PLAINS(String.valueOf("plains")),
     
-    MOUNTAIN("mountain"),
+    MOUNTAIN(String.valueOf("mountain")),
     
-    GREVYS("grevys");
+    GREVYS(String.valueOf("grevys"));
 
     private String value;
 

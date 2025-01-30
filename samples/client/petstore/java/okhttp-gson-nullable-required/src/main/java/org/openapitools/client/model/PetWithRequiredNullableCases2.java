@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * A pet for sale in the pet store
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0-SNAPSHOT")
 public class PetWithRequiredNullableCases2 {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -84,11 +84,11 @@ public class PetWithRequiredNullableCases2 {
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
-    AVAILABLE("available"),
+    AVAILABLE(String.valueOf("available")),
     
-    PENDING("pending"),
+    PENDING(String.valueOf("pending")),
     
-    SOLD("sold");
+    SOLD(String.valueOf("sold"));
 
     private String value;
 

@@ -52,7 +52,7 @@ import org.openapitools.client.JSON;
 /**
  * to test the default value of properties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0-SNAPSHOT")
 public class DefaultValue {
   public static final String SERIALIZED_NAME_ARRAY_STRING_ENUM_REF_DEFAULT = "array_string_enum_ref_default";
   @SerializedName(SERIALIZED_NAME_ARRAY_STRING_ENUM_REF_DEFAULT)
@@ -64,11 +64,11 @@ public class DefaultValue {
    */
   @JsonAdapter(ArrayStringEnumDefaultEnum.Adapter.class)
   public enum ArrayStringEnumDefaultEnum {
-    SUCCESS("success"),
+    SUCCESS(String.valueOf("success")),
     
-    FAILURE("failure"),
+    FAILURE(String.valueOf("failure")),
     
-    UNCLASSIFIED("unclassified");
+    UNCLASSIFIED(String.valueOf("unclassified"));
 
     private String value;
 

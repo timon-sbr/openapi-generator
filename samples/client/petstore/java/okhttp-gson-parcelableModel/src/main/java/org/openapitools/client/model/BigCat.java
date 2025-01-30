@@ -51,20 +51,20 @@ import org.openapitools.client.JSON;
 /**
  * BigCat
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0-SNAPSHOT")
 public class BigCat extends Cat implements Parcelable {
   /**
    * Gets or Sets kind
    */
   @JsonAdapter(KindEnum.Adapter.class)
   public enum KindEnum {
-    LIONS("lions"),
+    LIONS(String.valueOf("lions")),
     
-    TIGERS("tigers"),
+    TIGERS(String.valueOf("tigers")),
     
-    LEOPARDS("leopards"),
+    LEOPARDS(String.valueOf("leopards")),
     
-    JAGUARS("jaguars");
+    JAGUARS(String.valueOf("jaguars"));
 
     private String value;
 

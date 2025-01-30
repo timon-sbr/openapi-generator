@@ -5,11 +5,6 @@
 
 #define MAX_NUMBER_LENGTH 16
 #define MAX_BUFFER_LENGTH 4096
-#define intToStr(dst, src) \
-    do {\
-    char dst[256];\
-    snprintf(dst, 256, "%ld", (long int)(src));\
-}while(0)
 
 // Functions for enum STATUS for PetAPI_findPetsByStatus
 
@@ -66,14 +61,13 @@ PetAPI_addPet(apiClient_t *apiClient, pet_t *body)
     list_t *localVarHeaderType = NULL;
     list_t *localVarContentType = list_createList();
     char      *localVarBodyParameters = NULL;
+    size_t     localVarBodyLength = 0;
 
     // clear the error code from the previous api call
     apiClient->response_code = 0;
 
     // create the path
-    long sizeOfPath = strlen("/pet")+1;
-    char *localVarPath = malloc(sizeOfPath);
-    snprintf(localVarPath, sizeOfPath, "/pet");
+    char *localVarPath = strdup("/pet");
 
 
 
@@ -83,9 +77,10 @@ PetAPI_addPet(apiClient_t *apiClient, pet_t *body)
     cJSON *localVarSingleItemJSON_body = NULL;
     if (body != NULL)
     {
-        //string
+        //not string, not binary
         localVarSingleItemJSON_body = pet_convertToJSON(body);
         localVarBodyParameters = cJSON_PrintUnformatted(localVarSingleItemJSON_body);
+        localVarBodyLength = strlen(localVarBodyParameters);
     }
     list_addElement(localVarContentType,"application/json"); //consumes
     list_addElement(localVarContentType,"application/xml"); //consumes
@@ -97,6 +92,7 @@ PetAPI_addPet(apiClient_t *apiClient, pet_t *body)
                     localVarHeaderType,
                     localVarContentType,
                     localVarBodyParameters,
+                    localVarBodyLength,
                     "POST");
 
     // uncomment below to debug the error response
@@ -135,19 +131,18 @@ PetAPI_deletePet(apiClient_t *apiClient, long petId, char *api_key)
     list_t *localVarHeaderType = NULL;
     list_t *localVarContentType = NULL;
     char      *localVarBodyParameters = NULL;
+    size_t     localVarBodyLength = 0;
 
     // clear the error code from the previous api call
     apiClient->response_code = 0;
 
     // create the path
-    long sizeOfPath = strlen("/pet/{petId}")+1;
-    char *localVarPath = malloc(sizeOfPath);
-    snprintf(localVarPath, sizeOfPath, "/pet/{petId}");
+    char *localVarPath = strdup("/pet/{petId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_petId = sizeof(petId)+3 + strlen("{ petId }");
+    long sizeOfPathParams_petId = sizeof(petId)+3 + sizeof("{ petId }") - 1;
     if(petId == 0){
         goto end;
     }
@@ -155,7 +150,7 @@ PetAPI_deletePet(apiClient_t *apiClient, long petId, char *api_key)
     snprintf(localVarToReplace_petId, sizeOfPathParams_petId, "{%s}", "petId");
 
     char localVarBuff_petId[256];
-    intToStr(localVarBuff_petId, petId);
+    snprintf(localVarBuff_petId, sizeof localVarBuff_petId, "%ld", petId);
 
     localVarPath = strReplace(localVarPath, localVarToReplace_petId, localVarBuff_petId);
 
@@ -181,6 +176,7 @@ PetAPI_deletePet(apiClient_t *apiClient, long petId, char *api_key)
                     localVarHeaderType,
                     localVarContentType,
                     localVarBodyParameters,
+                    localVarBodyLength,
                     "DELETE");
 
     // uncomment below to debug the error response
@@ -226,14 +222,13 @@ PetAPI_findPetsByStatus(apiClient_t *apiClient, list_t *status)
     list_t *localVarHeaderType = list_createList();
     list_t *localVarContentType = NULL;
     char      *localVarBodyParameters = NULL;
+    size_t     localVarBodyLength = 0;
 
     // clear the error code from the previous api call
     apiClient->response_code = 0;
 
     // create the path
-    long sizeOfPath = strlen("/pet/findByStatus")+1;
-    char *localVarPath = malloc(sizeOfPath);
-    snprintf(localVarPath, sizeOfPath, "/pet/findByStatus");
+    char *localVarPath = strdup("/pet/findByStatus");
 
 
 
@@ -254,6 +249,7 @@ PetAPI_findPetsByStatus(apiClient_t *apiClient, list_t *status)
                     localVarHeaderType,
                     localVarContentType,
                     localVarBodyParameters,
+                    localVarBodyLength,
                     "GET");
 
     // uncomment below to debug the error response
@@ -317,14 +313,13 @@ PetAPI_findPetsByTags(apiClient_t *apiClient, list_t *tags)
     list_t *localVarHeaderType = list_createList();
     list_t *localVarContentType = NULL;
     char      *localVarBodyParameters = NULL;
+    size_t     localVarBodyLength = 0;
 
     // clear the error code from the previous api call
     apiClient->response_code = 0;
 
     // create the path
-    long sizeOfPath = strlen("/pet/findByTags")+1;
-    char *localVarPath = malloc(sizeOfPath);
-    snprintf(localVarPath, sizeOfPath, "/pet/findByTags");
+    char *localVarPath = strdup("/pet/findByTags");
 
 
 
@@ -345,6 +340,7 @@ PetAPI_findPetsByTags(apiClient_t *apiClient, list_t *tags)
                     localVarHeaderType,
                     localVarContentType,
                     localVarBodyParameters,
+                    localVarBodyLength,
                     "GET");
 
     // uncomment below to debug the error response
@@ -406,14 +402,13 @@ PetAPI_getDaysWithoutIncident(apiClient_t *apiClient)
     list_t *localVarHeaderType = list_createList();
     list_t *localVarContentType = NULL;
     char      *localVarBodyParameters = NULL;
+    size_t     localVarBodyLength = 0;
 
     // clear the error code from the previous api call
     apiClient->response_code = 0;
 
     // create the path
-    long sizeOfPath = strlen("/store/daysWithoutIncident")+1;
-    char *localVarPath = malloc(sizeOfPath);
-    snprintf(localVarPath, sizeOfPath, "/store/daysWithoutIncident");
+    char *localVarPath = strdup("/store/daysWithoutIncident");
 
 
 
@@ -427,6 +422,7 @@ PetAPI_getDaysWithoutIncident(apiClient_t *apiClient)
                     localVarHeaderType,
                     localVarContentType,
                     localVarBodyParameters,
+                    localVarBodyLength,
                     "GET");
 
     // uncomment below to debug the error response
@@ -469,19 +465,18 @@ PetAPI_getPetById(apiClient_t *apiClient, long petId)
     list_t *localVarHeaderType = list_createList();
     list_t *localVarContentType = NULL;
     char      *localVarBodyParameters = NULL;
+    size_t     localVarBodyLength = 0;
 
     // clear the error code from the previous api call
     apiClient->response_code = 0;
 
     // create the path
-    long sizeOfPath = strlen("/pet/{petId}")+1;
-    char *localVarPath = malloc(sizeOfPath);
-    snprintf(localVarPath, sizeOfPath, "/pet/{petId}");
+    char *localVarPath = strdup("/pet/{petId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_petId = sizeof(petId)+3 + strlen("{ petId }");
+    long sizeOfPathParams_petId = sizeof(petId)+3 + sizeof("{ petId }") - 1;
     if(petId == 0){
         goto end;
     }
@@ -489,7 +484,7 @@ PetAPI_getPetById(apiClient_t *apiClient, long petId)
     snprintf(localVarToReplace_petId, sizeOfPathParams_petId, "{%s}", "petId");
 
     char localVarBuff_petId[256];
-    intToStr(localVarBuff_petId, petId);
+    snprintf(localVarBuff_petId, sizeof localVarBuff_petId, "%ld", petId);
 
     localVarPath = strReplace(localVarPath, localVarToReplace_petId, localVarBuff_petId);
 
@@ -505,6 +500,7 @@ PetAPI_getPetById(apiClient_t *apiClient, long petId)
                     localVarHeaderType,
                     localVarContentType,
                     localVarBodyParameters,
+                    localVarBodyLength,
                     "GET");
 
     // uncomment below to debug the error response
@@ -561,14 +557,13 @@ PetAPI_getPicture(apiClient_t *apiClient)
     list_t *localVarHeaderType = list_createList();
     list_t *localVarContentType = NULL;
     char      *localVarBodyParameters = NULL;
+    size_t     localVarBodyLength = 0;
 
     // clear the error code from the previous api call
     apiClient->response_code = 0;
 
     // create the path
-    long sizeOfPath = strlen("/pet/picture")+1;
-    char *localVarPath = malloc(sizeOfPath);
-    snprintf(localVarPath, sizeOfPath, "/pet/picture");
+    char *localVarPath = strdup("/pet/picture");
 
 
 
@@ -582,6 +577,7 @@ PetAPI_getPicture(apiClient_t *apiClient)
                     localVarHeaderType,
                     localVarContentType,
                     localVarBodyParameters,
+                    localVarBodyLength,
                     "GET");
 
     // uncomment below to debug the error response
@@ -622,19 +618,18 @@ PetAPI_isPetAvailable(apiClient_t *apiClient, long petId)
     list_t *localVarHeaderType = list_createList();
     list_t *localVarContentType = NULL;
     char      *localVarBodyParameters = NULL;
+    size_t     localVarBodyLength = 0;
 
     // clear the error code from the previous api call
     apiClient->response_code = 0;
 
     // create the path
-    long sizeOfPath = strlen("/pet/{petId}/isAvailable")+1;
-    char *localVarPath = malloc(sizeOfPath);
-    snprintf(localVarPath, sizeOfPath, "/pet/{petId}/isAvailable");
+    char *localVarPath = strdup("/pet/{petId}/isAvailable");
 
 
 
     // Path Params
-    long sizeOfPathParams_petId = sizeof(petId)+3 + strlen("{ petId }");
+    long sizeOfPathParams_petId = sizeof(petId)+3 + sizeof("{ petId }") - 1;
     if(petId == 0){
         goto end;
     }
@@ -642,7 +637,7 @@ PetAPI_isPetAvailable(apiClient_t *apiClient, long petId)
     snprintf(localVarToReplace_petId, sizeOfPathParams_petId, "{%s}", "petId");
 
     char localVarBuff_petId[256];
-    intToStr(localVarBuff_petId, petId);
+    snprintf(localVarBuff_petId, sizeof localVarBuff_petId, "%ld", petId);
 
     localVarPath = strReplace(localVarPath, localVarToReplace_petId, localVarBuff_petId);
 
@@ -657,6 +652,7 @@ PetAPI_isPetAvailable(apiClient_t *apiClient, long petId)
                     localVarHeaderType,
                     localVarContentType,
                     localVarBodyParameters,
+                    localVarBodyLength,
                     "POST");
 
     // uncomment below to debug the error response
@@ -697,7 +693,7 @@ end:
 // Send a picture of your happy pet
 //
 char*
-PetAPI_sharePicture(apiClient_t *apiClient, char *picture)
+PetAPI_sharePicture(apiClient_t *apiClient, binary_t* picture)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -705,21 +701,22 @@ PetAPI_sharePicture(apiClient_t *apiClient, char *picture)
     list_t *localVarHeaderType = list_createList();
     list_t *localVarContentType = NULL;
     char      *localVarBodyParameters = NULL;
+    size_t     localVarBodyLength = 0;
 
     // clear the error code from the previous api call
     apiClient->response_code = 0;
 
     // create the path
-    long sizeOfPath = strlen("/pet/picture")+1;
-    char *localVarPath = malloc(sizeOfPath);
-    snprintf(localVarPath, sizeOfPath, "/pet/picture");
+    char *localVarPath = strdup("/pet/picture");
 
 
 
 
 
     // Body Param
-    localVarBodyParameters = strdup(picture);
+    localVarBodyParameters = malloc(picture->len);
+    memcpy(localVarBodyParameters, picture->data, picture->len);
+    localVarBodyLength = picture->len;
     list_addElement(localVarHeaderType,"*/*"); //produces
     apiClient_invoke(apiClient,
                     localVarPath,
@@ -729,6 +726,7 @@ PetAPI_sharePicture(apiClient_t *apiClient, char *picture)
                     localVarHeaderType,
                     localVarContentType,
                     localVarBodyParameters,
+                    localVarBodyLength,
                     "POST");
 
     // uncomment below to debug the error response
@@ -772,14 +770,13 @@ PetAPI_specialtyPet(apiClient_t *apiClient)
     list_t *localVarHeaderType = list_createList();
     list_t *localVarContentType = NULL;
     char      *localVarBodyParameters = NULL;
+    size_t     localVarBodyLength = 0;
 
     // clear the error code from the previous api call
     apiClient->response_code = 0;
 
     // create the path
-    long sizeOfPath = strlen("/pet/specialty")+1;
-    char *localVarPath = malloc(sizeOfPath);
-    snprintf(localVarPath, sizeOfPath, "/pet/specialty");
+    char *localVarPath = strdup("/pet/specialty");
 
 
 
@@ -794,6 +791,7 @@ PetAPI_specialtyPet(apiClient_t *apiClient)
                     localVarHeaderType,
                     localVarContentType,
                     localVarBodyParameters,
+                    localVarBodyLength,
                     "GET");
 
     // uncomment below to debug the error response
@@ -841,14 +839,13 @@ PetAPI_updatePet(apiClient_t *apiClient, pet_t *body)
     list_t *localVarHeaderType = NULL;
     list_t *localVarContentType = list_createList();
     char      *localVarBodyParameters = NULL;
+    size_t     localVarBodyLength = 0;
 
     // clear the error code from the previous api call
     apiClient->response_code = 0;
 
     // create the path
-    long sizeOfPath = strlen("/pet")+1;
-    char *localVarPath = malloc(sizeOfPath);
-    snprintf(localVarPath, sizeOfPath, "/pet");
+    char *localVarPath = strdup("/pet");
 
 
 
@@ -858,9 +855,10 @@ PetAPI_updatePet(apiClient_t *apiClient, pet_t *body)
     cJSON *localVarSingleItemJSON_body = NULL;
     if (body != NULL)
     {
-        //string
+        //not string, not binary
         localVarSingleItemJSON_body = pet_convertToJSON(body);
         localVarBodyParameters = cJSON_PrintUnformatted(localVarSingleItemJSON_body);
+        localVarBodyLength = strlen(localVarBodyParameters);
     }
     list_addElement(localVarContentType,"application/json"); //consumes
     list_addElement(localVarContentType,"application/xml"); //consumes
@@ -872,6 +870,7 @@ PetAPI_updatePet(apiClient_t *apiClient, pet_t *body)
                     localVarHeaderType,
                     localVarContentType,
                     localVarBodyParameters,
+                    localVarBodyLength,
                     "PUT");
 
     // uncomment below to debug the error response
@@ -918,19 +917,18 @@ PetAPI_updatePetWithForm(apiClient_t *apiClient, long petId, char *name, char *s
     list_t *localVarHeaderType = NULL;
     list_t *localVarContentType = list_createList();
     char      *localVarBodyParameters = NULL;
+    size_t     localVarBodyLength = 0;
 
     // clear the error code from the previous api call
     apiClient->response_code = 0;
 
     // create the path
-    long sizeOfPath = strlen("/pet/{petId}")+1;
-    char *localVarPath = malloc(sizeOfPath);
-    snprintf(localVarPath, sizeOfPath, "/pet/{petId}");
+    char *localVarPath = strdup("/pet/{petId}");
 
 
 
     // Path Params
-    long sizeOfPathParams_petId = sizeof(petId)+3 + strlen("{ petId }");
+    long sizeOfPathParams_petId = sizeof(petId)+3 + sizeof("{ petId }") - 1;
     if(petId == 0){
         goto end;
     }
@@ -938,7 +936,7 @@ PetAPI_updatePetWithForm(apiClient_t *apiClient, long petId, char *name, char *s
     snprintf(localVarToReplace_petId, sizeOfPathParams_petId, "{%s}", "petId");
 
     char localVarBuff_petId[256];
-    intToStr(localVarBuff_petId, petId);
+    snprintf(localVarBuff_petId, sizeof localVarBuff_petId, "%ld", petId);
 
     localVarPath = strReplace(localVarPath, localVarToReplace_petId, localVarBuff_petId);
 
@@ -977,6 +975,7 @@ PetAPI_updatePetWithForm(apiClient_t *apiClient, long petId, char *name, char *s
                     localVarHeaderType,
                     localVarContentType,
                     localVarBodyParameters,
+                    localVarBodyLength,
                     "POST");
 
     // uncomment below to debug the error response
@@ -1029,19 +1028,18 @@ PetAPI_uploadFile(apiClient_t *apiClient, long petId, char *additionalMetadata, 
     list_t *localVarHeaderType = list_createList();
     list_t *localVarContentType = list_createList();
     char      *localVarBodyParameters = NULL;
+    size_t     localVarBodyLength = 0;
 
     // clear the error code from the previous api call
     apiClient->response_code = 0;
 
     // create the path
-    long sizeOfPath = strlen("/pet/{petId}/uploadImage")+1;
-    char *localVarPath = malloc(sizeOfPath);
-    snprintf(localVarPath, sizeOfPath, "/pet/{petId}/uploadImage");
+    char *localVarPath = strdup("/pet/{petId}/uploadImage");
 
 
 
     // Path Params
-    long sizeOfPathParams_petId = sizeof(petId)+3 + strlen("{ petId }");
+    long sizeOfPathParams_petId = sizeof(petId)+3 + sizeof("{ petId }") - 1;
     if(petId == 0){
         goto end;
     }
@@ -1049,7 +1047,7 @@ PetAPI_uploadFile(apiClient_t *apiClient, long petId, char *additionalMetadata, 
     snprintf(localVarToReplace_petId, sizeOfPathParams_petId, "{%s}", "petId");
 
     char localVarBuff_petId[256];
-    intToStr(localVarBuff_petId, petId);
+    snprintf(localVarBuff_petId, sizeof localVarBuff_petId, "%ld", petId);
 
     localVarPath = strReplace(localVarPath, localVarToReplace_petId, localVarBuff_petId);
 
@@ -1089,6 +1087,7 @@ PetAPI_uploadFile(apiClient_t *apiClient, long petId, char *additionalMetadata, 
                     localVarHeaderType,
                     localVarContentType,
                     localVarBodyParameters,
+                    localVarBodyLength,
                     "POST");
 
     // uncomment below to debug the error response

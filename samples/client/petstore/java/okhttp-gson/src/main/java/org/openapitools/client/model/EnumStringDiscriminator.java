@@ -48,16 +48,16 @@ import org.openapitools.client.JSON;
 /**
  * An object to test discriminator of enum string
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0-SNAPSHOT")
 public class EnumStringDiscriminator {
   /**
    * enum string type
    */
   @JsonAdapter(EnumStrTypeEnum.Adapter.class)
   public enum EnumStrTypeEnum {
-    A("type_a"),
+    A(String.valueOf("type_a")),
     
-    B("type_b");
+    B(String.valueOf("type_b"));
 
     private String value;
 
@@ -108,6 +108,7 @@ public class EnumStringDiscriminator {
   protected EnumStrTypeEnum enumStrType;
 
   public EnumStringDiscriminator() {
+
   }
 
   public EnumStringDiscriminator enumStrType(@javax.annotation.Nonnull EnumStrTypeEnum enumStrType) {
